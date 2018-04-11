@@ -22,7 +22,7 @@ public class UserController {
     @RequestMapping(value = "/findAll")
     public List<User> findAll(){
         //PageHelper.startPage(pageNum,pageSize);       //分页核心代码   就这一句
-        List<User> userList = userMapper.findAll();
+        List<User> userList = userMapper.
         //PageInfo<User> pageInfo = new PageInfo<>(userList);
         return userList;
     }
