@@ -2,6 +2,8 @@ package com.example.demo05.controller;
 
 import com.example.demo05.mapper.UserMapper;
 import com.example.demo05.model.User;
+import com.example.demo05.utils.JsonResult;
+import com.example.demo05.utils.ResultCode;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,12 @@ public class UserController {
     private UserMapper userMapper;
 
     @RequestMapping(value = "/findAll")
-    public List<User> findAll(){
-        //PageHelper.startPage(pageNum,pageSize);       //分页核心代码   就这一句
+    public JsonResult findAll(@RequestParam(name = "pageNum",defaultValue = "1",required = false) int pageNum,
+                              @RequestParam(name = "pageSize",defaultValue = "2",required = false) int pageSize){
+        PageHelper.startPage(pageNum,pageSize);       //分页核心代码   就这一句
         List<User> userList = userMapper.findAll();
-        //PageInfo<User> pageInfo = new PageInfo<>(userList);
-        return userList;
+        PageInfo<User> pageInfo = new PageInfo<>(userList);
+        return new JsonResult(ResultCode.SUCCESS,pageInfo);
     }
 
 //    @RequestMapping(value = "/findById")
