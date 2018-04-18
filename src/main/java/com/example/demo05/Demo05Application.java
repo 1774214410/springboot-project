@@ -17,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableJpaRepositories(basePackages={"com.example.demo05.model"})
 @ServletComponentScan
 @EntityScan(basePackages={"com.example.demo05.model"})
-//@tk.mybatis.spring.annotation.MapperScan(basePackages = "com.example.demo05.mapper")
 public class Demo05Application {
 
 	public static void main(String[] args) {
