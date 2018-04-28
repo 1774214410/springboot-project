@@ -28,7 +28,7 @@ public class UserController {
                               @RequestParam(name = "pageSize",defaultValue = "2",required = false) int pageSize){
         PageHelper.startPage(pageNum,pageSize);
 
-        log.//分页核心代码   就这一句
+                //分页核心代码   就这一句
         List<User> userList = userMapper.findAll();
         User user = new User();
 
